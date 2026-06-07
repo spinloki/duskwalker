@@ -1,5 +1,5 @@
 
-# Duskwaker [Working Title]
+# Duskwalker [Working Title]
 
 An in development life-sim with horror elements focusing on relationship mechanics with your superior in a dark techno-fantasy world. 
 

@@ -20,6 +20,17 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
+## Enable/disable this controller. While inactive it stops simulating, stops
+## reading input, hides, and drops its collision so it can ride inside the rover.
+func set_active(value: bool) -> void:
+	set_physics_process(value)
+	set_process_unhandled_input(value)
+	visible = value
+	$CollisionShape3D.set_deferred("disabled", not value)
+	if not value:
+		velocity = Vector3.ZERO
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)

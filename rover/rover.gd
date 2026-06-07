@@ -23,6 +23,15 @@ extends CharacterBody3D
 var _forward_speed := 0.0
 
 
+## Enable/disable driving. The rover keeps its collision while parked so the
+## player can walk up to it; it just stops responding to input and coasts to a halt.
+func set_active(value: bool) -> void:
+	set_physics_process(value)
+	if not value:
+		_forward_speed = 0.0
+		velocity = Vector3.ZERO
+
+
 func _physics_process(delta: float) -> void:
 	var throttle := Input.get_axis("move_back", "move_forward")
 	var steer := Input.get_axis("move_right", "move_left")

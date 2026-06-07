@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cucvt0rr1ufdg"]
+
+[ext_resource type="Script" path="res://world/sandbox.gd" id="1_sandbox"]
+[ext_resource type="PackedScene" path="res://world/greybox.tscn" id="2_greybox"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://rover/rover.tscn" id="4_rover"]
+
+[node name="Sandbox" type="Node3D"]
+script = ExtResource("1_sandbox")
+
+[node name="Greybox" parent="." instance=ExtResource("2_greybox")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+
+[node name="Rover" parent="." instance=ExtResource("4_rover")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.2, 0)
